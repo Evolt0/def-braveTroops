@@ -3,7 +3,8 @@ package epkg
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/dangersalad/httperror"
+	"github.com/Parker-Yang/def-braveTroops/constans/status"
+	"github.com/pkg/errors"
 	"net/http"
 	"strconv"
 	"strings"
@@ -25,15 +26,15 @@ func WrapFail(code int, message string) string {
 }
 
 func WrapFailV2(err error) string {
-	if httpError, ok := err.(httperror.HTTPError); ok {
+	if httpError, ok := err.(status.HttpError); ok {
 		return WrapFail(httpError.Code, httpError.Message)
 	}
 	return WrapFail(http.StatusInternalServerError, err.Error())
 }
 
-func UnwrapFail(err error) (code int, message string) {
+func UnwrapFail(err error) (code status.Status, message string) {
 	text := err.Error()
-	code, message = http.StatusInternalServerError, text
+	code, message = status.InternalServerError, text
 	tokenList := strings.Split(text, BraveTroopsCodeSeparatorBegin)
 	if len(tokenList) < 2 {
 		return
@@ -48,7 +49,7 @@ func UnwrapFail(err error) (code int, message string) {
 	if err != nil {
 		return
 	}
-	code, message = codeInt, headPart+tailPart
+	code, message = status.Status(codeInt), headPart+tailPart
 	return
 }
 
@@ -60,7 +61,11 @@ func UnwrapSucc(payload []byte, result interface{}) error {
 	return json.Unmarshal(payload, result)
 }
 
-func Wrapf(errCode int, format string, args ...interface{}) error {
-	sprint := fmt.Sprint(format, args)
-	return httperror.New(errCode, sprint)
+func Wrapf(err error, format string, args ...interface{}) error {
+	if statusErr, ok := status.IsError(err); ok {
+		prefix := fmt.Sprintf(format, args...) + ": "
+		statusErr.Message = prefix + statusErr.Message
+		return statusErr
+	}
+	return errors.Wrapf(err, format, args...)
 }

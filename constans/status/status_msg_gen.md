@@ -1,5 +1,5 @@
 
-# errors ErrCode Msg
+# status ErrCode Msg
 
 | code | message |
 |:----|:----|
@@ -8,4 +8,5 @@
 | Forbidden | // 禁止访问 |
 | InternalServerError | // 内部处理错误 |
 | NotFound | // 资源未找到 |
+| Ok | // 正确响应 |
 | Unauthorized | // 未授权 |
