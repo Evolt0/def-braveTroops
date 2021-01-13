@@ -8,5 +8,5 @@ type Ledger struct {
 	// 收款人
 	ReceiverID string `json:"receiverID"`
 	// 金额
-	Amount string `json:"amount"`
+	Change string `json:"change"`
 }
