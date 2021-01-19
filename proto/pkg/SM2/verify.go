@@ -8,7 +8,7 @@ import (
 )
 
 // sign 签名 userPub 用户公钥 message 需要验证的信息
-func Sm2(sign string, userPub string, message string) error {
+func Verify(sign string, userPub string, message string) error {
 	Pubkey, err := sm2.ReadPublicKeyFromMem([]byte(userPub), nil)
 	if err != nil {
 		return err

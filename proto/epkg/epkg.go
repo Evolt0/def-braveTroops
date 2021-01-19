@@ -3,7 +3,7 @@ package epkg
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/Parker-Yang/def-braveTroops/constans/status"
+	"github.com/Parker-Yang/def-braveTroops/consts/status"
 	"github.com/pkg/errors"
 	"net/http"
 	"strconv"
