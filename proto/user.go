@@ -4,10 +4,12 @@ package proto
 type User struct {
 	// 用户id（根据用户公钥Hash获得）
 	ID string `json:"id"`
+	//对象类型定义
+	ObjectType string `json:"objectType"`
 	// 用户公钥
 	PubKey string `json:"pubKey"`
 	// 账户余额
-	Balance string `json:"balance"`
+	Balance float64 `json:"balance"`
 	// 产生时间
 	CreateAt int64 `json:"createAt"`
 }
