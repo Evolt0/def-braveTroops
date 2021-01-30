@@ -1,16 +1,17 @@
 package prefix
 
 const (
-	FnPutState        = "FnPutState"
-	FnGetState        = "FnGetState"
-	FnGetHistoryState = "FnGetHistoryState"
-	FnPoW             = "FnPoW"
-	FnGetTarget       = "FnGetTarget"
-	FnListMining      = "FnListMining"
-	FnListLedger      = "FnListLedger"
-	FnTransfer        = "FnTransfer"
-	FnCreateUser      = "FnCreateUser"
-	FnListLedgerByID  = "FnListLedgerByID"
+	FnPutState        = "PutState"
+	FnGetState        = "GetState"
+	FnGetHistoryState = "GetHistoryState"
+	FnPoW             = "PoW"
+	FnGetTarget       = "GetTarget"
+	FnListMining      = "ListMining"
+	FnListLedger      = "ListLedger"
+	FnTransfer        = "Transfer"
+	FnCreateUser      = "CreateUser"
+	FnListUser        = "ListUser"
+	FnListLedgerByID  = "ListLedgerByID"
 )
 
 const BraveTroops = "BraveTroops~"
@@ -20,4 +21,5 @@ const (
 	Mining  = "Mining"
 	Ledger  = "Ledger"
 	Amounts = "Amounts"
+	Target  = "Target"
 )

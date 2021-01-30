@@ -1,4 +1,4 @@
-module github.com/Parker-Yang/def-braveTroops
+module github.com/Evolt0/def-braveTroops
 
 go 1.15
 
