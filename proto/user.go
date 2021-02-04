@@ -20,3 +20,7 @@ type UserReq struct {
 	// 用户公钥
 	PubKey string `json:"pubKey" binding:"required"`
 }
+
+type ListUser struct {
+	List []User `json:"list"`
+}
