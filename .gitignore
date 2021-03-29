@@ -1,2 +1,5 @@
 /.idea/
 /go.sum
+proto/pkg/.DS_Store
+proto/.DS_Store
+.DS_Store
